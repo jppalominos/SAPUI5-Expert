@@ -18,6 +18,7 @@ sap.ui.define([
 
             onShowHello: function () {
                 //read text from i18n model
+                // @ts-ignore
                 var oBundle = this.getView().getModel("i18n").getResourceBundle();
 
                 //read property from data model

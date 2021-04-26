@@ -4,7 +4,6 @@ sap.ui.define([
     "sap/ui/model/resource/ResourceModel"
 ],
     /**
-     * 
      * @param {typeof sap.ui.core.UIComponent} UIComponent
      * @param {typeof sap.ui.model.resource.ResourceModel} ResourceModel
      */
