@@ -1,3 +1,4 @@
+// @ts-nocheck
 sap.ui.define([
     "sap/ui/core/mvc/Controller"
 ],
@@ -12,6 +13,10 @@ sap.ui.define([
 
             onInit: function () {
 
+            },
+
+            onOpenDialogHeader: function(){
+                this.getOwnerComponent().openHelloDialog();
             }
         });
     });
