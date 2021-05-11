@@ -1,13 +1,15 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast"
+    "sap/m/MessageToast",
+    "sap/ui/core/Fragment"
 ],
     /**
      * 
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      * @param {typeof sap.m.MessageToast} MessageToast
+     * * @param {typeof sap.ui.core.Fragment} Fragment
      */
-    function (Controller, MessageToast) {
+    function (Controller, MessageToast, Fragment) {
         "use strict";
 
         return Controller.extend("logaligroup.SAPUI5.controller.HelloPanel", {
@@ -26,6 +28,21 @@ sap.ui.define([
                 var sMsg = oBundle.getText("helloMsg", [sRecipient]);
 
                 MessageToast.show(sMsg);
+            },
+
+            onOpenDialog: function () {
+
+                const oView = this.getView();
+
+                if (!this.byId("helloDialog")) {
+                    Fragment.load({
+                        id: oView.getId(),
+                        name: "logaligroup.SAPUI5.view.HelloDialog"
+                    }).then(function (oDialog) {
+                        oView.addDependent(oDialog);
+                        oDialog.open();
+                    });
+                }
             }
         });
     });
